@@ -17,6 +17,5 @@ class Solution:
 
         return max_len
 
-        
 s = "aab" # 3
 print(Solution().lengthOfLongestSubstring(s))
