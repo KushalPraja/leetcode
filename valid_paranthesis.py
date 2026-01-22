@@ -15,8 +15,5 @@ class Solution:
             return True
         
         return False
-     
-if __name__ == "__main__":
-    s = Solution()
-    print(s.isValid("()"))
-    print(s.isValid("()[]{}"))
+
+print(Solution().isValid("()[]{}"))
