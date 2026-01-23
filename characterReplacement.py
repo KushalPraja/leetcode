@@ -17,5 +17,3 @@ class Solution:
             result = max(result, right - left + 1)
         
         return result
-
-
