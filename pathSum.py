@@ -11,9 +11,9 @@ class TreeNode:
 class Solution:
     def hasPathSum(self, root: Optional[TreeNode], targetSum: int) -> bool:
         found = False
+
         def dfs(root, pathVal):
             nonlocal found
-            
             if root.left:
                 dfs(root.left, pathVal + root.val)
 
