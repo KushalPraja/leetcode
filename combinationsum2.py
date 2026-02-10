@@ -11,6 +11,7 @@ class Solution:
 
                 return
 
+
             for i in range(start, len(candidates)):
                 if i > start and candidates[i] == candidates[i-1]:
                     continue
