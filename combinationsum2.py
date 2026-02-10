@@ -1,19 +1,22 @@
 class Solution:
-    def combinationSum(self, candidates: list[int], target: int) -> list[list[int]]:
+    def combinationSum2(self, candidates: List[int], target: int) -> List[List[int]]:
         
         res = []
+        candidates.sort()
 
-        def backtrack(path):
+        def dfs(start, path):
             if sum(path) >= target:
-                if sum(path) == target and sorted(path) not in res: 
-                    res.append(sorted(path[:]))
+                if sum(path) == target:
+                    res.append(path[:])
+
                 return
 
-            for i in range(len(candidates)):
+            for i in range(start, len(candidates)):
+                if i > start and candidates[i] == candidates[i-1]:
+                    continue
                 path.append(candidates[i])
-                backtrack(path)
+                dfs(i + 1, path)
                 path.pop()
-
-        backtrack([])
+        
+        dfs(0, [])
         return res
-            
