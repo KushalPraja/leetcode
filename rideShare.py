@@ -1,6 +1,5 @@
 class RideSharingSystem:
     
-    # these are our queues
     def __init__(self):
         self.riders = []
         self.drivers = []
@@ -23,4 +22,3 @@ class RideSharingSystem:
     def cancelRider(self, riderId: int) -> None:
         if riderId in self.riders:
             self.riders.remove(riderId)
-               
