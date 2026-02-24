@@ -1,23 +1,25 @@
+from typing import List
+
 class Solution:
     def longestBalanced(self, nums: List[int]) -> int:
-        max_size = 0
-        n = len(nums)
-
-        for l in range(n):
+        
+        max_sub = 0
+        for i in range(len(nums)):
             odd_count = 0
             even_count = 0
-            sub_array = set()
-            
-            for r in range(l, n):
-                val = nums[r]
-                if val not in sub_array:
-                    if val % 2 == 0:
-                        even_count += 1
-                    else:
-                        odd_count += 1
-                    sub_array.add(val)
+            temp = set()
+            for j in range(i, len(nums)):
+                if nums[j] in temp:
+                    pass
+                elif nums[j] % 2 == 0:
+                    even_count += 1
+                else:
+                    odd_count += 1
+
+                temp.add(nums[j])
+
+                if even_count == odd_count:
+                    max_sub = max(max_sub, j - i + 1)
+
+        return max_sub
                 
-                if odd_count == even_count:
-                    max_size = max(max_size, r - l + 1)
-            
-        return max_size
