@@ -28,7 +28,7 @@ class Solution:
         return dfs(0, amount)
 
 
-    # bottom up apporach
+    # bottom up apporach [using 0-1 knapsack approach]
 
     def Bot_change(self, amount: int, coins: List[int]) -> int:
 
@@ -38,3 +38,5 @@ class Solution:
         for coin in coins:
             for i in range(coin, amount + 1):
                 dp[i] += dp[i - coin]
+
+        return dp[amount]
