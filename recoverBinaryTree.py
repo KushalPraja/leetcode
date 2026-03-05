@@ -22,10 +22,3 @@ class Solution:
         for i in range(len(treelist)):
             if treelist[i].val != sets[i]:
                 treelist[i].val = sets[i]
-            
-
-
-            
-
-
-
