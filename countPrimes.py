@@ -1,27 +1,17 @@
 class Solution:
     def countPrimes(self, n: int) -> int:
 
+
+        # false = 0, true = 1
         if n <= 2:
             return 0
 
-        temp = [0] * n
-        count = 1
+        temp = [True] * n
+        temp[0], temp[1] = False, False
 
-        for i in range(2, n):
-            temp[i] = i
-
-        curr = 2
-        while (curr != len(temp)):
-            if temp[curr] == -1:
-                curr += 1
-                continue
-
-            count += 1
-            for i in range(curr, len(temp), curr):
-                temp[i] = -1
-            curr += 1
-            
-        return count - 1
-
-
-
+        for i in range(2, int(n**0.5)+1):
+            if temp[i]:
+                for j in range(i*i, n, i):
+                    temp[j] = False
+        
+        return sum(temp)
