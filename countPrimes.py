@@ -1,8 +1,8 @@
+# sieve of eratosthenes algorithm (optimized)
+
 class Solution:
     def countPrimes(self, n: int) -> int:
 
-
-        # false = 0, true = 1
         if n <= 2:
             return 0
 
