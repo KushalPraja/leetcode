@@ -4,7 +4,6 @@ class Solution:
     def minSwaps(self, grid: List[List[int]]) -> int:
         
         rights = []
-
         for i in range(len(grid)):
             count = 0
             for j in range(len(grid[i]) - 1, -1, -1):
