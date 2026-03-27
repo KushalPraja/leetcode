@@ -6,7 +6,7 @@ class Solution {
 public:
     bool searchMatrix(vector<vector<int>>&matrix, int target) {
         int left = 0;
-        int right = matrix.size() -1; // number of columsn
+        int right = matrix.size() -1; // number of column 
 
         while (left <= right){
             int mid = (left + right)/2;

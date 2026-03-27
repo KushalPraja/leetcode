@@ -9,7 +9,6 @@ class Solution:
         while carry or i < len(nums1) or i < len(nums2):
             val1 = 0
             val2 = 0
-
             if i >= len(nums1):
                 val1 = 0
             else:
