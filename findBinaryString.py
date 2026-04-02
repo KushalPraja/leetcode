@@ -14,4 +14,5 @@ class Solution:
                 x = dfs(path + i)
                 if x:
                     return x
+
         return dfs("")

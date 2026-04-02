@@ -10,6 +10,7 @@ class Solution:
             array[1].append([])
             array[2].append([])
             array[3].append([])
+
             for j in range(0, len(mat)):
                 array[0][-1].append(mat[i][j])
                 array[1][-1].append(mat[len(mat)-i - 1][len(mat)-j - 1])
