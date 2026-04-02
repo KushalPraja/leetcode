@@ -24,4 +24,4 @@ class Solution:
             visited[(i,j,ignores)] = min_path
             return min_path
 
-        return dfs(2, 0, 0
+        return dfs(2, 0, 0)
