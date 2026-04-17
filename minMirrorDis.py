@@ -11,12 +11,7 @@ class Solution:
                 dis = min(dis, abs(i - mapping[nums[i]]))
         
             rev = int(str(nums[i])[::-1])
-            if rev not in mapping:
-                mapping[rev] = i
-        
-            else:
-                mapping[rev] = i
-        
+            mapping[rev] = i
         
         return dis if dis != float('inf') else -1
             
