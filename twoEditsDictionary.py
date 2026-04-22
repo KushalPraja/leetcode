@@ -12,8 +12,8 @@ class Solution:
             for j in dictionary:
                 diff = 0
 
-                for i in range(len(curr)):
-                    if curr[i] != j[i]:
+                for k in range(len(curr)):
+                    if curr[k] != j[k]:
                         diff += 1
 
                 if diff > 2:
