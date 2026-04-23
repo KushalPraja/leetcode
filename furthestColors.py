@@ -1,3 +1,5 @@
+from typing import List
+
 class Solution:
     def maxDistance(self, colors: List[int]) -> int:
         max_dis = 0
