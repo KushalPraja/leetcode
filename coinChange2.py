@@ -40,3 +40,32 @@ class Solution:
                 dp[i] += dp[i - coin]
 
         return dp[amount]
+
+    # My approach (similar to 0-1 knapsack but we can use the same coin multiple times)
+    def coinChange(self, coins: List[int], amount: int) -> int:
+        
+        
+        dp = [-1] * (amount + 1)
+        dp[0] = 0
+
+        for i in range(len(coins)):
+            if coins[i] <= amount:
+                dp[coins[i]] = 1 
+
+
+        coins = set(coins)
+        for i in range(1, amount + 1):
+            min_way = float('inf')
+
+            for j in coins:
+                rem = i - j
+                if rem >= 0 and dp[rem] != -1:
+                    min_way = min(dp[rem] + 1, min_way)
+            
+            if min_way == float('inf'):
+                dp[i] = -1
+            
+            else:
+                dp[i] = min_way
+
+        return dp[-1]
