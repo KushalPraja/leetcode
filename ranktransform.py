@@ -12,5 +12,4 @@ class Solution:
         for j in range(len(arr)):
             arr[j] = hashmap[arr[j]]
 
-        
         return arr
