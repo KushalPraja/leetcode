@@ -1,5 +1,5 @@
 from typing import List
-
+from collections import deque
 # Kahn's algorithm implementation for topological sort
 
 class Solution:
