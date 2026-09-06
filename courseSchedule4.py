@@ -1,3 +1,6 @@
+from typing import List
+from collections import deque
+
 class Solution:
     def checkIfPrerequisite(self, numCourses: int, prerequisites: List[List[int]], queries: List[List[int]]) -> List[bool]:
         
