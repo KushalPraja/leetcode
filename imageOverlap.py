@@ -3,57 +3,29 @@ class Solution:
         overlaps = 0
         rows = len(img1)
         cols = len(img1[0])
-        
-        def check_overlap(img1, img2):
-            nonlocal overlaps
-            temp = 0
-            for r in range(rows):
-                for c in range(cols):
-                    if img1[r][c] == img2[r][c] == 1:
-                        temp += 1
-            overlaps = max(overlaps, temp)
 
-                        
-        def shift_up(img, rows, cols):
-            return img[1:] + [[0] * cols]
-        
-        def shift_down(img, rows, cols):
-            return [[0] * cols] + img[:-1]
-        
-        def shift_left(img):
-            return [row[1:] + [0] for row in img]
-        
-        def shift_right(img):
-            return [[0] + row[:-1] for row in img]
-        
-        up = img1[:]
-        down = img1[:]
-        check_overlap(img1, img2)
+        img1set = []
+        img2set = set()
 
         for i in range(rows):
-            left = up
-            right = up
-
             for j in range(cols):
-                check_overlap(left, img2)
-                left = shift_left(left)
+                if img1[i][j] == 1:
+                    img1set.append((i, j))
+                if img2[i][j] == 1:
+                    img2set.add((i, j))
 
-            for j in range(cols):
-                check_overlap(right, img2)
-                right = shift_right(right)
+        N = rows
+        max_count = 0
+        for i in range(-N, N):
+            for j in range(-N, N):
+                count = 0
+                for a, b in img1set:
+                    na = a + i
+                    nb = b + j
 
-            left = down
-            right = down
+                    if (na, nb) in img2set:
+                        count += 1
 
-            for j in range(cols):
-                check_overlap(left, img2)
-                left = shift_left(left)
+                max_count = max(count, max_count)
 
-            for j in range(cols):
-                check_overlap(right, img2)
-                right = shift_right(right)
-
-            up = shift_up(up, rows, cols)
-            down = shift_down(down, rows, cols)
-
-        return overlap
+        return max_count
