@@ -1,19 +1,25 @@
-from typing import List, Optional
+
 
 class Solution:
-    def merge(self, intervals: List[List[int]]) -> List[List[int]]:
-        
-        intervals.sort(key=lambda item:item[0])
-        stack = []
+    def merge(self, intervals: list[list[int]]) -> list[list[int]]:
+        intervals.sort(key = lambda i:i[0])
+        temp = intervals[0]
+        res = []
+        for i in range(1, len(intervals)):
+            curr, end = intervals[i]
 
-        for i in range(len(intervals)):
+            if curr > temp[-1]:
+                res.append(temp)
+                temp = [curr, end]
+                continue
+                
+            if curr <= temp[-1]:
+                temp[0] = min(temp[0], curr)
+                temp[1] = max(temp[1], end)
 
-            if stack and intervals[i][0] <= stack[-1][1]:
-                stack[-1][0] = min(stack[-1][0], intervals[i][0])
-                stack[-1][1] = max(stack[-1][-1], intervals[i][-1])
+        if temp:
+            res.append(temp)
+        return res
 
-            else:
-                stack.append(intervals[i])
 
-        return stack
-        
+           
